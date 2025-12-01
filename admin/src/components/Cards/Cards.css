@@ -1,0 +1,60 @@
+.performance-card {
+  background: hsl(11, 100%, 97%);      
+  padding: 18px 20px;
+  border-radius: 12px;
+  border-left: 6px solid #e64c3c;    
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #d84337;
+  transition: 0.2s ease;
+}
+
+.performance-card:hover {
+  transform: translateY(-4px);
+}
+
+.performance-card svg {
+  font-size: 22px;
+  color: #e64c3c;
+}
+
+.performance-card span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.performance-card h3 {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #b13b2e;
+}
+
+
+.quick-action-card {
+  background: hsl(11, 100%, 97%);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #e64c3c;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s ease;
+}
+
+.quick-action-card:hover {
+  background: #ffd1bf;
+  transform: translateY(-3px);
+}
+
+.quick-action-card svg {
+  font-size: 26px;
+  margin-bottom: 3px;
+}
