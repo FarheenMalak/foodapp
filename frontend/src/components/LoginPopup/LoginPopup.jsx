@@ -46,7 +46,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 toast.success(response.data.message);
 
                 setTimeout(() => {
-                    window.location.href = "http://localhost:5174/";
+                    window.location.href = "https://foodapp-admin-panel.vercel.app";
                 }, 1500);
                 return;
             }
