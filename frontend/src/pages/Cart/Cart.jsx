@@ -6,15 +6,19 @@ const Cart = () => {
 
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext)
   const navigate = useNavigate()
-    const getImageUrl = () => {
+  const getImageUrl = (image) => {
+    if (!image) return 'https://via.placeholder.com/150x150?text=No+Image';
+    
     if (image.startsWith('http://') || image.startsWith('https://')) {
-      // It's already a full URL (Cloudinary)
       return image;
     } else {
-      // It's a local filename
       return url + "/images/" + image;
     }
   }
+    const handleImageError = (e) => {
+    e.target.src = 'https://via.placeholder.com/150x150?text=Image+Error';
+  }
+
 
   return (
     <div className='cart'>
@@ -29,10 +33,16 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
-          if (cartItems[item._id] > 0) {
-            return (<div>              <div className='cart-items-title cart-items-item'>
-              <img src={getImageUrl()} alt="" />
+      {food_list.map((item, index) => {
+        if (cartItems[item._id] > 0) {
+          return (
+            <div key={index}>
+              <div className='cart-items-title cart-items-item'>
+                <img 
+                  src={getImageUrl(item.image)} 
+                  alt={item.name}
+                  onError={handleImageError}
+                />
               <p>{item.name}</p>
               <p>${item.price}</p>
               <p>{cartItems[item._id]}</p>
