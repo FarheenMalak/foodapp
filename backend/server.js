@@ -12,10 +12,30 @@ import adminRouter from "./routes/adminRoute.js";
 const app = express()
 const port = process.env.PORT || 4000;
 
-//middleware - ADD THESE LINES
+// Define allowed origins
+const allowedOrigins = [
+  'https://foodapp-frontend-phi.vercel.app',
+  'https://foodapp-admin-panel.vercel.app', 
+
+];
+
+// CORS configuration
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true  
+}));
+
+//middleware
 app.use(express.json())
-app.use(express.urlencoded({ extended: true })) // ← THIS IS CRITICAL FOR FORM DATA
-app.use(cors({ origin: process.env.FRONT_END_URL }));
+app.use(express.urlencoded({ extended: true }))
 
 //db connection
 connectDB();
@@ -28,16 +48,11 @@ app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
 app.use("/api/admin", adminRouter)
 
-// Add a test route for debugging
-app.post("/api/test-upload", (req, res) => {
-    console.log("Test endpoint hit");
-    console.log("Headers:", req.headers);
-    console.log("Body:", req.body);
-    res.json({ message: "Test successful", body: req.body });
-});
-
 app.get("/", (req, res) => {
-    res.send("API Working")
+  res.send("API Working")
 })
 
-app.listen(port, () => { console.log(`Server started on http://localhost:${port}`);});
+app.listen(port, () => { 
+  console.log(`Server started on http://localhost:${port}`);
+  console.log("Allowed origins:", allowedOrigins);
+});
