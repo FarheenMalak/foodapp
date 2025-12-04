@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home/Home'
 
 const App = () => {
-  const url = "http://localhost:4000"
+  const url = "https://foodapp-backend-rouge.vercel.app"
   return (
     <div>
       <ToastContainer />
