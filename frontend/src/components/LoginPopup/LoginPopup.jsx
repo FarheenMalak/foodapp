@@ -52,7 +52,7 @@ const LoginPopup = ({ setShowLogin }) => {
 
     // Normal user redirect
     setTimeout(() => {
-        navigate("/myorders"); // or homepage
+        navigate("/"); // or homepage
     }, 500);
 
     setShowLogin(false)
