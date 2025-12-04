@@ -38,22 +38,25 @@ const LoginPopup = ({ setShowLogin }) => {
 
         const response = await axios.post(newUrl, data);
 
-        if (response.data.success) {
-            setToken(response.data.token)
-            localStorage.setItem("token", response.data.token);
-            toast.success(response.data.message)
-            if (currState === "AdminLogin") {
-                toast.success(response.data.message);
+ if (response.data.success) {
+    setToken(response.data.token)
+    localStorage.setItem("token", response.data.token);
+    toast.success(response.data.message)
+    
+    if (currState === "AdminLogin") {
+        setTimeout(() => {
+            window.location.href = "https://foodapp-admin-panel.vercel.app";
+        }, 500);
+        return;
+    }
 
-                setTimeout(() => {
-                    window.location.href = "https://foodapp-admin-panel.vercel.app";
-                }, 1500);
-                return;
-            }
-            setShowLogin(false)
-        } else {
-            toast.error(response.data.message)
-        }
+    // Normal user redirect
+    setTimeout(() => {
+        navigate("/myorders"); // or homepage
+    }, 500);
+
+    setShowLogin(false)
+}
     }
 
     return (
