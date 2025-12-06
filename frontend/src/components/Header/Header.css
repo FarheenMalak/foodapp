@@ -35,6 +35,9 @@
     border-radius: 50px;
 }
 @media (max-width:1050px) {
+    .header{
+        height: 36vw;
+    }
    .header-contents{
     max-width: 45%;
    }
@@ -45,6 +48,9 @@
    }
    .header-contents p{
     display: none;
+   }
+   .header-contents h2{
+    font-size: 20px;
    }
    .header-contents button{
     padding: 2vw 4vw;

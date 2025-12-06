@@ -87,4 +87,7 @@
     .cart-promocode{
         justify-content: start;
     }
+    .cart-items-item{
+        gap: 3px;
+    }
 }

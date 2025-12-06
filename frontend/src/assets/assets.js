@@ -327,7 +327,7 @@ export const food_list = [
         category: "Noodles"
     }, {
         _id: "30",
-        name: "eg NoodlesV",
+        name: "Veg Noodles",
         image: food_30,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
