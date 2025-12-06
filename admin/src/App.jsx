@@ -10,14 +10,13 @@ import Home from './pages/Home/Home'
 
 const App = () => {
   const url = "https://foodapp-backend-rouge.vercel.app"
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Check for token in URL params first
-    const tokenFromUrl = searchParams.get('token');
+   const tokenFromUrl = new URLSearchParams(window.location.search).get("token");
     
     if (tokenFromUrl) {
       // Store the token and remove from URL

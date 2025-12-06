@@ -45,7 +45,7 @@ const onLogin = async (event) => {
             // Pass token as URL parameter
             const adminToken = response.data.token;
             setTimeout(() => {
-                window.location.href = `https://foodapp-admin-panel.vercel.app?token=${adminToken}`;
+              window.location.href = `https://foodapp-admin-panel.vercel.app/?token=${adminToken}`;
             }, 800);
             return;
         }

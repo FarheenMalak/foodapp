@@ -16,7 +16,6 @@ const port = process.env.PORT || 4000;
 const allowedOrigins = [
   'https://foodapp-frontend-phi.vercel.app',
   'https://foodapp-admin-panel.vercel.app', 
-
 ];
 
 // CORS configuration
